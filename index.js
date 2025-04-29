@@ -46,8 +46,9 @@ const gradesObject=Object.entries(grades);
     }
 })
 }
-console.log(averageScore(grades))
-// console.log(grades)
+averageScore(grades)
+
+
 //4  Write a function constructor called User that takes username, email, and isActive (boolean). Create an array of users. Write a program that loops through the array and deactivates users who have not logged in recently (simulate this with a random isActive: false assignment) and print out the usernames of active users. (5 pts)
 
 function User(username,email,isActive){
@@ -69,8 +70,10 @@ function activeUsers(users){
 activeUsers(users)
 
 
-//5  You have an array of destination objects, each with name, distance (in km), and budgetRequired (in dollars). Write a function that accepts a maximum distance and a budget and returns all destinations the user can afford and reach within that distance. If none are found, return "No destinations available under your budget and distance".
- const destination=[
+//5  You have an array of destination objects, each with name, distance (in km), and budgetRequired (in dollars). 
+// Write a function that accepts a maximum distance and a budget and returns all destinations the user can afford and reach within that distance. 
+// If none are found, return "No destinations available under your budget and distance".
+ const destinations=[
     {name:"Ethiopia",
         distance:1470,
         budgetRequired:400
@@ -79,8 +82,22 @@ activeUsers(users)
         distance:903,
         budgetRequired:380
     },  
-     {name:"Ethiopia",
-        distance:1470,
-        budgetRequired:400
+     {name:"Tanzania",
+        distance:1055,
+        budgetRequired:200
     }
  ]
+  
+ function canAffordTrip(maximumDistance,budget){
+ destinations.map(destination=>{
+    if((destination.distance<=maximumDistance) && (destination.budgetRequired<=budget)){
+        console.log(`${destination}`)
+    }
+    else{
+        console.log(`No destination available under your budget and distance`)
+    }
+ })
+ }
+ 
+
+ canAffordTrip(destinations,900,380)
